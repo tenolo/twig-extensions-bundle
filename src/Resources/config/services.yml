@@ -1,0 +1,22 @@
+parameters:
+    # twig extension
+    tenolo_twig_extensions.twig_extension.filesize.class: Tenolo\Twig\Extensions\Extension\FilesizeExtension
+    tenolo_twig_extensions.twig_extension.array.class: Tenolo\Twig\Extensions\Extension\ArrayExtension
+    tenolo_twig_extensions.twig_extension.color.class: Tenolo\Twig\Extensions\Extension\ColorExtension
+
+services:
+    # twig extensions
+    tenolo_twig_extensions.twig_extension.filesize:
+        class: "%tenolo_twig_extensions.twig_extension.filesize.class%"
+        tags:
+            - { name: twig.extension }
+
+    tenolo_twig_extensions.twig_extension.array:
+        class: "%tenolo_twig_extensions.twig_extension.array.class%"
+        tags:
+            - { name: twig.extension }
+
+    tenolo_twig_extensions.twig_extension.color:
+        class: "%tenolo_twig_extensions.twig_extension.color.class%"
+        tags:
+            - { name: twig.extension }

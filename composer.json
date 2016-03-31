@@ -1,0 +1,60 @@
+{
+    "name": "tenolo/twig-extensions-bundle",
+    "description": "basic twig extensions for symfony.",
+    "keywords": [
+        "base",
+        "twig",
+        "extension",
+        "extensions",
+        "symfony",
+        "bundle",
+        "tenolo"
+    ],
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "homepage": "http://tenolo.de",
+    "authors": [
+        {
+            "name": "tenolo - Robert Bernis, Johannes Herberhold GbR",
+            "email": "info@tenolo.de",
+            "homepage": "http://tenolo.de"
+        },
+        {
+            "name": "Nikita Loges",
+            "email": "n.loges@tenolo.de"
+        }
+    ],
+    "require": {
+        "php": ">=5.6",
+        "symfony/config": "~2.8|~3.0",
+        "symfony/dependency-injection": "~2.8|~3.0",
+        "symfony/http-kernel": "~2.8|~3.0",
+        "tenolo/twig-extensions": "~0.1@dev"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~5.0"
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://repo.tenolo.com/repo/private/"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Tenolo\\Bundle\\TwigExtensionsBundle\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tenolo\\Bundle\\TwigExtensionsBundle\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-release/0.1": "0.1-dev"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
