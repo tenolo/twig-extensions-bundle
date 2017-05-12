@@ -1,22 +1,22 @@
-parameters:
-    # twig extension
-    tenolo_twig_extensions.twig_extension.filesize.class: Tenolo\Twig\Extensions\Extension\FilesizeExtension
-    tenolo_twig_extensions.twig_extension.array.class: Tenolo\Twig\Extensions\Extension\ArrayExtension
-    tenolo_twig_extensions.twig_extension.color.class: Tenolo\Twig\Extensions\Extension\ColorExtension
-
 services:
     # twig extensions
     tenolo_twig_extensions.twig_extension.filesize:
-        class: "%tenolo_twig_extensions.twig_extension.filesize.class%"
+        class: Tenolo\Twig\Extensions\Extension\FilesizeExtension
         tags:
             - { name: twig.extension }
 
     tenolo_twig_extensions.twig_extension.array:
-        class: "%tenolo_twig_extensions.twig_extension.array.class%"
+        class: Tenolo\Twig\Extensions\Extension\ArrayExtension
         tags:
             - { name: twig.extension }
 
     tenolo_twig_extensions.twig_extension.color:
-        class: "%tenolo_twig_extensions.twig_extension.color.class%"
+        class: Tenolo\Twig\Extensions\Extension\ColorExtension
+        tags:
+            - { name: twig.extension }
+
+    tenolo_twig_extensions.twig_extension.form:
+        class: Tenolo\Bundle\TwigExtensionsBundle\Twig\Extension\FormExtension
+        arguments: ['@translator']
         tags:
             - { name: twig.extension }
