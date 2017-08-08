@@ -32,7 +32,7 @@
         "symfony/dependency-injection": "~2.8|~3.0",
         "symfony/http-kernel": "~2.8|~3.0",
 
-        "tenolo/twig-extensions": "~0.1@dev",
+        "tenolo/twig-extensions": "~0.2",
 
         "mmoreram/symfony-bundle-dependencies": "~1.0"
     },
