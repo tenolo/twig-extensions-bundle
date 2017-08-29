@@ -4,6 +4,8 @@ namespace Tenolo\Bundle\TwigExtensionsBundle\Twig\Extension;
 
 use Symfony\Component\Form\FormView;
 use Symfony\Component\Translation\TranslatorInterface;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFilter;
 
 /**
  * Class FormExtension
@@ -12,7 +14,7 @@ use Symfony\Component\Translation\TranslatorInterface;
  * @author  Nikita Loges
  * @company tenolo GbR
  */
-class FormExtension extends \Twig_Extension
+class FormExtension extends AbstractExtension
 {
 
     /** @var TranslatorInterface */
@@ -32,7 +34,7 @@ class FormExtension extends \Twig_Extension
     public function getFilters()
     {
         return [
-            new \Twig_SimpleFilter('form_label', [$this, 'getFormLabel']),
+            new TwigFilter('form_label', [$this, 'getFormLabel']),
         ];
     }
 

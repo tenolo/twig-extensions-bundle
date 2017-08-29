@@ -2,10 +2,10 @@
 
 namespace Tenolo\Bundle\TwigExtensionsBundle\DependencyInjection;
 
-use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
-use Symfony\Component\HttpKernel\DependencyInjection\Extension;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader;
+use Symfony\Component\HttpKernel\DependencyInjection\ConfigurableExtension;
 
 /**
  * Class TenoloTwigExtensionsExtension
@@ -14,16 +14,13 @@ use Symfony\Component\DependencyInjection\Loader;
  * @author  Nikita Loges
  * @company tenolo GbR
  */
-class TenoloTwigExtensionsExtension extends Extension
+class TenoloTwigExtensionsExtension extends ConfigurableExtension
 {
     /**
      * @inheritdoc
      */
-    public function load(array $configs, ContainerBuilder $container)
+    public function loadInternal(array $config, ContainerBuilder $container)
     {
-        $configuration = new Configuration();
-        $config = $this->processConfiguration($configuration, $configs);
-
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.yml');
     }
