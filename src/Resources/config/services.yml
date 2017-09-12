@@ -20,8 +20,17 @@ services:
         tags:
             - { name: twig.extension }
 
+    # symfony bridge
     tenolo_twig_extensions.twig_extension.form:
         class: Tenolo\Bundle\TwigExtensionsBundle\Twig\Extension\FormExtension
         arguments: ['@translator']
+        tags:
+            - { name: twig.extension }
+
+    tenolo_twig_extensions.twig_extension.routing:
+        class: Tenolo\Bundle\TwigExtensionsBundle\Twig\Extension\RoutingExtension
+        arguments:
+            - '@router'
+            - '@request_stack'
         tags:
             - { name: twig.extension }

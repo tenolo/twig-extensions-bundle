@@ -31,6 +31,8 @@
         "symfony/config": "~2.8|~3.0",
         "symfony/dependency-injection": "~2.8|~3.0",
         "symfony/http-kernel": "~2.8|~3.0",
+        "symfony/http-foundation": "~2.8|~3.0",
+        "symfony/routing": "~2.8|~3.0",
 
         "tenolo/twig-extensions": "~0.3|~1.0",
 
