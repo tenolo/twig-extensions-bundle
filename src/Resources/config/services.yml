@@ -20,6 +20,12 @@ services:
         tags:
             - { name: twig.extension }
 
+    # external twig extensions
+    tenolo_twig_extensions.twig_extension.deferred:
+        class: Phive\Twig\Extensions\Deferred\DeferredExtension
+        tags:
+            - { name: twig.extension }
+
     # symfony bridge
     tenolo_twig_extensions.twig_extension.form:
         class: Tenolo\Bundle\TwigExtensionsBundle\Twig\Extension\FormExtension
