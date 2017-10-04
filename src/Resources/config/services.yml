@@ -1,4 +1,11 @@
 services:
+    # event listener
+    tenolo_twig_extensions.twig_config.number_format:
+        class: Tenolo\Bundle\TwigExtensionsBundle\EventListener\TwigConfigNumberFormatListener
+        arguments: ['@twig']
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+
     # twig extensions
     tenolo_twig_extensions.twig_extension.filesize:
         class: Tenolo\Twig\Extensions\Extension\FilesizeExtension
@@ -21,12 +28,23 @@ services:
             - { name: twig.extension }
 
     # external twig extensions
+    twig.extension.text:
+        class: Twig_Extensions_Extension_Text
+        tags:
+            - { name: twig.extension }
+
     tenolo_twig_extensions.twig_extension.deferred:
         class: Phive\Twig\Extensions\Deferred\DeferredExtension
         tags:
             - { name: twig.extension }
 
     # symfony bridge
+    tenolo_twig_extensions.twig_extension.container:
+        class: Tenolo\Bundle\TwigExtensionsBundle\Twig\Extension\ContainerExtension
+        arguments: ['@service_container']
+        tags:
+            - { name: twig.extension }
+
     tenolo_twig_extensions.twig_extension.form:
         class: Tenolo\Bundle\TwigExtensionsBundle\Twig\Extension\FormExtension
         arguments: ['@translator']
