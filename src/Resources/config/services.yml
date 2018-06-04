@@ -29,7 +29,7 @@ services:
 
     # external twig extensions
     twig.extension.text:
-        class: Twig_Extensions_Extension_Text
+        class: Twig\Extensions\TextExtension
         tags:
             - { name: twig.extension }
 
