@@ -2,10 +2,7 @@
 
 namespace Tenolo\Bundle\TwigExtensionsBundle;
 
-use Mmoreram\SymfonyBundleDependencies\DependentBundleInterface;
-use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
-use Symfony\Component\HttpKernel\KernelInterface;
 
 /**
  * Class TenoloTwigExtensionsBundle
@@ -14,16 +11,6 @@ use Symfony\Component\HttpKernel\KernelInterface;
  * @author  Nikita Loges
  * @company tenolo GbR
  */
-class TenoloTwigExtensionsBundle extends Bundle implements DependentBundleInterface
+class TenoloTwigExtensionsBundle extends Bundle
 {
-
-    /**
-     * @inheritdoc
-     */
-    public static function getBundleDependencies(KernelInterface $kernel)
-    {
-        return [
-            FrameworkBundle::class,
-        ];
-    }
 }
