@@ -45,6 +45,10 @@ class ContainerExtension extends AbstractExtension
      */
     public function getConfigParameter($name)
     {
+        if (!$this->container->hasParameter($name)) {
+            return false;
+        }
+
         return $this->container->getParameter($name);
     }
 
