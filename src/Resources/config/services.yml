@@ -1,4 +1,8 @@
 services:
+    # service
+    tenolo_twig_extensions.twig_globals:
+        class: Tenolo\Bundle\TwigExtensionsBundle\Service\TwigGlobalsManager
+
     # event listener
     tenolo_twig_extensions.twig_config.number_format:
         class: Tenolo\Bundle\TwigExtensionsBundle\EventListener\TwigConfigNumberFormatListener
@@ -56,5 +60,13 @@ services:
         arguments:
             - '@router'
             - '@request_stack'
+        tags:
+            - { name: twig.extension }
+
+
+    tenolo_twig_extensions.twig_extension.twig_globals:
+        class: Tenolo\Bundle\TwigExtensionsBundle\Twig\Extension\TwigGlobalsExtension
+        arguments:
+            - '@tenolo_twig_extensions.twig_globals'
         tags:
             - { name: twig.extension }
