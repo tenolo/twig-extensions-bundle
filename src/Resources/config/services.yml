@@ -1,72 +1,30 @@
 services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: true
+
     # service
-    tenolo_twig_extensions.twig_globals:
-        class: Tenolo\Bundle\TwigExtensionsBundle\Service\TwigGlobalsManager
+    Tenolo\Bundle\TwigExtensionsBundle\Service\TwigGlobalsManager: ~
+    tenolo_twig_extensions.twig_globals: '@Tenolo\Bundle\TwigExtensionsBundle\Service\TwigGlobalsManager'
 
     # event listener
-    tenolo_twig_extensions.twig_config.number_format:
-        class: Tenolo\Bundle\TwigExtensionsBundle\EventListener\TwigConfigNumberFormatListener
-        arguments: ['@twig']
-        tags:
-            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+    Tenolo\Bundle\TwigExtensionsBundle\EventListener\TwigConfigNumberFormatListener: ~
 
     # twig extensions
-    tenolo_twig_extensions.twig_extension.filesize:
-        class: Tenolo\Twig\Extensions\Extension\FilesizeExtension
-        tags:
-            - { name: twig.extension }
-
-    tenolo_twig_extensions.twig_extension.array:
-        class: Tenolo\Twig\Extensions\Extension\ArrayExtension
-        tags:
-            - { name: twig.extension }
-
-    tenolo_twig_extensions.twig_extension.color:
-        class: Tenolo\Twig\Extensions\Extension\ColorExtension
-        tags:
-            - { name: twig.extension }
-
-    tenolo_twig_extensions.twig_extension.content:
-        class: Tenolo\Twig\Extensions\Extension\ContentExtension
-        tags:
-            - { name: twig.extension }
+    Tenolo\Twig\Extensions\Extension\FilesizeExtension: ~
+    Tenolo\Twig\Extensions\Extension\ArrayExtension: ~
+    Tenolo\Twig\Extensions\Extension\ColorExtension: ~
+    Tenolo\Twig\Extensions\Extension\ContentExtension: ~
 
     # external twig extensions
-    twig.extension.text:
-        class: Twig\Extensions\TextExtension
-        tags:
-            - { name: twig.extension }
-
-    tenolo_twig_extensions.twig_extension.deferred:
-        class: Phive\Twig\Extensions\Deferred\DeferredExtension
-        tags:
-            - { name: twig.extension }
+    Twig\Extensions\TextExtension: ~
+    Phive\Twig\Extensions\Deferred\DeferredExtension: ~
 
     # symfony bridge
-    tenolo_twig_extensions.twig_extension.container:
-        class: Tenolo\Bundle\TwigExtensionsBundle\Twig\Extension\ContainerExtension
+    Tenolo\Bundle\TwigExtensionsBundle\Twig\Extension\ContainerExtension:
         arguments: ['@service_container']
-        tags:
-            - { name: twig.extension }
 
-    tenolo_twig_extensions.twig_extension.form:
-        class: Tenolo\Bundle\TwigExtensionsBundle\Twig\Extension\FormExtension
-        arguments: ['@translator']
-        tags:
-            - { name: twig.extension }
-
-    tenolo_twig_extensions.twig_extension.routing:
-        class: Tenolo\Bundle\TwigExtensionsBundle\Twig\Extension\RoutingExtension
-        arguments:
-            - '@router'
-            - '@request_stack'
-        tags:
-            - { name: twig.extension }
-
-
-    tenolo_twig_extensions.twig_extension.twig_globals:
-        class: Tenolo\Bundle\TwigExtensionsBundle\Twig\Extension\TwigGlobalsExtension
-        arguments:
-            - '@tenolo_twig_extensions.twig_globals'
-        tags:
-            - { name: twig.extension }
+    Tenolo\Bundle\TwigExtensionsBundle\Twig\Extension\FormExtension: ~
+    Tenolo\Bundle\TwigExtensionsBundle\Twig\Extension\RoutingExtension: ~
+    Tenolo\Bundle\TwigExtensionsBundle\Twig\Extension\TwigGlobalsExtension: ~

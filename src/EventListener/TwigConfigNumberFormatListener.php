@@ -2,7 +2,9 @@
 
 namespace Tenolo\Bundle\TwigExtensionsBundle\EventListener;
 
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
+use Symfony\Component\HttpKernel\KernelEvents;
 use Twig\Environment;
 use Twig\Extension\CoreExtension;
 
@@ -13,7 +15,7 @@ use Twig\Extension\CoreExtension;
  * @author  Nikita Loges
  * @company tenolo GbR
  */
-class TwigConfigNumberFormatListener
+class TwigConfigNumberFormatListener implements EventSubscriberInterface
 {
 
     /** @var Environment */
@@ -25,6 +27,16 @@ class TwigConfigNumberFormatListener
     public function __construct(Environment $twig)
     {
         $this->twig = $twig;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public static function getSubscribedEvents()
+    {
+        return [
+            KernelEvents::REQUEST => 'onKernelRequest'
+        ];
     }
 
     /**
