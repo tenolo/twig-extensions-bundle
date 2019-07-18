@@ -15,13 +15,22 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
 class Configuration implements ConfigurationInterface
 {
 
+    public const ROOT_NODE = 'tenolo_twig_extensions';
+
     /**
      * @inheritdoc
      */
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('tenolo_twig_extensions');
+        $treeBuilder = new TreeBuilder(static::ROOT_NODE);
+
+        if (method_exists($treeBuilder, 'getRootNode')) {
+            // Symfony 4.2 +
+            $rootNode = $treeBuilder->getRootNode();
+        } else {
+            // Symfony 4.1 and below
+            $rootNode = $treeBuilder->root(static::ROOT_NODE);
+        }
 
         return $treeBuilder;
     }
